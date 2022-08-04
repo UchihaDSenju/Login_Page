@@ -1,0 +1,55 @@
+body{
+    background-image: url('photos/gray-wall-textures-background_74190-4389.jpg');
+    background-repeat: no-repeat;
+    background-size: 150vw 150vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.main{
+    text-align: center;
+    
+}
+#error,#form_div{
+    border: 2px solid black;
+    margin: 10px auto;
+    border-radius: 12px;
+    width: 30%;
+}
+#form_div{
+    background-color: rgba(200, 216, 201, 0.5)
+}
+#error{
+    background-color: rgb(248, 219, 219);
+    color: rgb(200, 86, 86);
+    text-align: left;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+}
+input,button,.input{
+    width: 88%;
+    height: 37px;
+    margin: 5px 0px;
+    border: 2px solid black;
+    border-radius: 7px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large ;
+}
+form{
+    padding: 20px 0px 5px 0px;
+}
+hr{
+    width: 90%;
+    height: 1px;
+    background-color: rgb(166, 159, 159);
+    border-radius: 2px;
+    border: 1px solid rgb(166, 159, 159);
+}
+button:hover,#button:hover{
+    cursor: pointer;
+    background-color: gainsboro;
+}
+button:active,#button:active{
+    background-color: grey;
+}
+.welc{
+    color: azure;
+}
