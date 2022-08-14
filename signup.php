@@ -46,8 +46,8 @@
                 <input type="submit" value="Register" id="button" name="register">
                 <hr>
                 <h3 style="margin: 3px 0px ;">Already a Member?</h3>
-                <button formaction="login.php">Login in</button>
             </form>
+            <a href="login.php"><button style="margin-top: 0px">Login Here</button></a>
             
         </div>
     </div>
