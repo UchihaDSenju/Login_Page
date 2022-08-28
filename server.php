@@ -7,7 +7,7 @@
     $dept="";
     $year="";
     $error=array();
-    $outres;
+    
     //signup
     if(isset($_POST['register']))
     {
@@ -45,6 +45,10 @@
     {
         $email=mysqli_real_escape_string($conn,$_POST['email']);
         $password=mysqli_real_escape_string($conn,$_POST['password']);
+        if($email=='admin' && $password=='admin'){
+            $_SESSION['name']='Admin';
+            header('location: index.php');
+        }
         if($email!='admin')
         $password=md5($password);
 
@@ -63,13 +67,23 @@
                 array_push($error,"Invalid Email or Password");
               }
     }
+
+    //user viewing
     if(isset($_GET['user'])){
         echo "GET works";
         $email=$_SESSION['email'];
         $sql="SELECT * from user_details WHERE email='$email'; ";
         $query=mysqli_query($conn,$sql);
         $res=mysqli_fetch_assoc($query);
-        $outres=$res;
         print_r($res);
+    }
+
+    //admin viewing
+    if(isset($_GET['admin'])){
+        echo "GET Works";
+        $sql="SELECT * from user_details";
+        $query=mysqli_query($conn,$sql);
+        $result=mysqli_fetch_all($query,MYSQLI_ASSOC);
+        echo print_r($result);
     }
 ?>
