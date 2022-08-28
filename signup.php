@@ -18,7 +18,7 @@
         <?php include('error.php'); ?>
         <div id="form_div" style="padding-bottom: 10px ;">
         <h1 style="margin: 15px 0px 0px 0px;">REGISTER</h1>
-            <form action='signup.php' method="post">
+            <form action='signup.php' method="post" enctype="multipart/form-data">
                 <input type="text" placeholder="Username" name='name' value="<?php echo $name; ?>" required>
 
                 <input type="email" placeholder="Your email" name='email' value="<?php echo $email; ?>" required>
@@ -43,6 +43,9 @@
                     <option value="III">III</option>
                     <option value="IV">IV</option>
                 </select>
+
+                
+
                 <input type="submit" value="Register" id="button" name="register">
                 <hr>
                 <h3 style="margin: 3px 0px ;">Already a Member?</h3>

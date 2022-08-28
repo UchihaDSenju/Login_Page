@@ -7,6 +7,7 @@
     $dept="";
     $year="";
     $error=array();
+    $outres;
     //signup
     if(isset($_POST['register']))
     {
@@ -34,6 +35,7 @@
             $sql="INSERT into user_details VALUES('$name','$email','$password','$dept','$year')";
             $result=mysqli_query($conn,$sql);
             $_SESSION['name']=$name;
+            $_SESSION['email']=$email;
             header('location: index.php');
         }
     }
@@ -53,10 +55,21 @@
 
               if(mysqli_num_rows($result)==1){
                 $_SESSION['name']=$values['username'];
+                $_SESSION['email']=$values['email'];
+                
                 header('location: index.php');
               }
               else{
                 array_push($error,"Invalid Email or Password");
               }
+    }
+    if(isset($_GET['user'])){
+        echo "GET works";
+        $email=$_SESSION['email'];
+        $sql="SELECT * from user_details WHERE email='$email'; ";
+        $query=mysqli_query($conn,$sql);
+        $res=mysqli_fetch_assoc($query);
+        $outres=$res;
+        print_r($res);
     }
 ?>

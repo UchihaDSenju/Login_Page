@@ -53,3 +53,20 @@ button:active,#button:active{
 .welc{
     color: azure;
 }
+.dem{
+    color: brown;
+}
+td{
+    text-align: center;
+}
+table, th, td{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+.img-border{
+    width: 94%;
+    height: 100px;
+    border: 2px solid black;
+    margin-left: 1;
+    margin-right: -23;
+}
