@@ -38,6 +38,6 @@
             </tr>
         </tbody>
     </table>
-    <a href="">edit_profile</a>
+    <a href="edit.php?edit= '1'">edit_profile</a>
 </body>
 </html>

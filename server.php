@@ -7,7 +7,7 @@
     $dept="";
     $year="";
     $error=array();
-    
+
     //signup
     if(isset($_POST['register']))
     {
@@ -32,7 +32,7 @@
         if(empty($error))
         {
             $password=md5($password);
-            $sql="INSERT into user_details VALUES('$name','$email','$password','$dept','$year')";
+            $sql="INSERT into user_details VALUES('$name','$email','$password','$dept','$year','')";
             $result=mysqli_query($conn,$sql);
             $_SESSION['name']=$name;
             $_SESSION['email']=$email;
@@ -85,5 +85,35 @@
         $query=mysqli_query($conn,$sql);
         $result=mysqli_fetch_all($query,MYSQLI_ASSOC);
         echo print_r($result);
+    }
+
+    //Profile Edit
+    if(isset($_GET['edit'])){
+        echo "GET Works";
+        $email=$_SESSION['email'];
+        $name=$_SESSION['name'];
+        $sql="SELECT * from user_details WHERE email='$email';";
+        $query=mysqli_query($conn,$sql);
+        $res=mysqli_fetch_assoc($query);
+        print_r($res);
+        $emailo=$res['email'];
+        $file_name_n=$res['img'];
+        if(isset($_POST['edit'])){
+            if($_FILES['profile']['error']==0){
+                $file_name=$_FILES['profile']['name'];
+                $file_ext=pathinfo($file_name,PATHINFO_EXTENSION);
+                $file_name_n=uniqid("IMG-",TRUE). "." . $file_ext;
+                move_uploaded_file($_FILES['profile']['tmp_name'],'Uploads/' . $file_name_n);
+            }
+            $email=$_POST['email'];
+            $name=$_POST['name'];
+            $dept=$_POST['dept'];
+            $year=$_POST['year'];
+            $sql="UPDATE user_details SET username='$name', email='$email', dept='$dept', `year`='$year', img='$file_name_n' WHERE email='$emailo' ";
+            $query=mysqli_query($conn,$sql);
+            $_SESSION['email']=$email;
+            $_SESSION['name']=$name;
+            header('location: index.php');
+        }
     }
 ?>
