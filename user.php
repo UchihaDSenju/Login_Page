@@ -34,7 +34,7 @@
                 <td><?php echo $res['email'] ?></td>
                 <td><?php echo $res['dept'] ?></td>
                 <td><?php echo $res['year'] ?></td>
-                <td><div class="img-border"></div></td>
+                <td><div class="img-border"><img class="profile" src="Uploads/<?=$res['img']?>" alt="NO IMAGE UPLOAD"></div></td>
             </tr>
         </tbody>
     </table>

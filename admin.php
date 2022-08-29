@@ -17,28 +17,30 @@
 <body>
     <h1>Welcome <?php echo $_SESSION['name']; ?></h1>
     <a href="user.php?logout= '1'">Logout</a>
-    <table align="center" width="50%" id="table">
-        <tbody>
+    <div class="det">
+        <table align="center" width="100%" id="table">
+            <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>email</th>
+                        <th>Dept</th>
+                        <th>Year</th>
+                        <th>Profile</th>
+                    </tr>
+            </tbody>
+            <tbody>
+            <?php foreach($result as $res): ?>
                 <tr>
-                    <th>Name</th>
-                    <th>email</th>
-                    <th>Dept</th>
-                    <th>Year</th>
-                    <th>Profile</th>
+                    
+                    <td><?php echo $res['username'] ?></td>
+                    <td><?php echo $res['email'] ?></td>
+                    <td><?php echo $res['dept'] ?></td>
+                    <td><?php echo $res['year'] ?></td>
+                    <td><div class="img-border"><img class="profile" src="Uploads/<?=$res['img'];?>" alt="NO IMAGE UPLOAD"></div></td>
                 </tr>
-        </tbody>
-        <tbody>
-        <?php foreach($result as $res): ?>
-            <tr>
-                
-                <td><?php echo $res['username'] ?></td>
-                <td><?php echo $res['email'] ?></td>
-                <td><?php echo $res['dept'] ?></td>
-                <td><?php echo $res['year'] ?></td>
-                <td><div class="img-border"></div></td>
-            </tr>
-            <?php endforeach ?>
-        </tbody>
-    </table>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

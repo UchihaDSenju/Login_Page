@@ -97,9 +97,12 @@
         $res=mysqli_fetch_assoc($query);
         print_r($res);
         $emailo=$res['email'];
-        $file_name_n=$res['img'];
+        $file_name=$res['img'];
         if(isset($_POST['edit'])){
             if($_FILES['profile']['error']==0){
+                if(file_exists('Uploads/' . $file_name)){
+                    unlink('Uploads/' . $file_name);
+                }
                 $file_name=$_FILES['profile']['name'];
                 $file_ext=pathinfo($file_name,PATHINFO_EXTENSION);
                 $file_name_n=uniqid("IMG-",TRUE). "." . $file_ext;
